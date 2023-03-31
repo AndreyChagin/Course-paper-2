@@ -58,7 +58,7 @@ class Autor:
 
     def __autoriz(self):
         if Autorization().proverka(self.__login.get(), self.__password.get()) == 'Users':
-            tkinter.messagebox.showinfo('Оповещение', 'Вы авторизованы как юзер')
+            tkinter.messagebox.showinfo('Оповещение', 'Вы авторизованы как клиент')
             self.__app.destroy()
             User().loop()
         elif Autorization().proverka(self.__login.get(), self.__password.get()) == 'Manager':
