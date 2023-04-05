@@ -61,7 +61,7 @@ class CheckMyApp:
     def __delete_application(self):
         if self.__table.item(self.__table.selection())['values'] != '':
             Application().delete_application(id_app=self.__table.item(self.__table.selection())['values'][0])
-            messagebox.showinfo('Оповещение', 'Заявка удалена!!!')
+            messagebox.showinfo('Оповещение', 'Заявка удалена, обновите таблицу!!!')
         else:
             messagebox.showerror('Ошибка', 'Вы ничего не выбрали!!!')
 
