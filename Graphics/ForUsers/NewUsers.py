@@ -63,16 +63,17 @@ class NewUser:
         login = self.__login.get()
         password = self.__password.get()
         phone = self.__phone.get()
-        if password == self.__repitpassword.get() and len(password) > 5 and len(login) > 5 and phone != 0:
-            Users().new_user(login, password, phone)
-            tkinter.messagebox.showinfo('Оповещение', 'Успешно')
-            self.__app.destroy()
+        if len(password) == 0 or len(self.__repitpassword.get()) == 0 or len(password) == 0 or len(login) == 0 or \
+                len(phone) == 0:
+            tkinter.messagebox.showerror('Оповещение', 'Поля не заполнены!')
         elif login in (item[1] for item in Users().data):
             tkinter.messagebox.showerror('Оповещение', 'Такой пользователь уже есть!')
         elif password != self.__repitpassword.get():
             tkinter.messagebox.showerror('Оповещение', 'Пароли не совпадают!')
         else:
-            tkinter.messagebox.showerror('Оповещение', 'Поля не заполнены!')
+            Users().new_user(login, password, phone)
+            tkinter.messagebox.showinfo('Оповещение', 'Успешно')
+            self.__app.destroy()
 
     def loop(self):
         self.__login.place(x=85, y=30)
