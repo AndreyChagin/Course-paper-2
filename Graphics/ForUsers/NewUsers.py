@@ -63,7 +63,7 @@ class NewUser:
         login = self.__login.get()
         password = self.__password.get()
         phone = self.__phone.get()
-        if password == self.__repitpassword.get() and len(login) > 5 and phone != 0:
+        if password == self.__repitpassword.get() and len(password) > 5 and len(login) > 5 and phone != 0:
             Users().new_user(login, password, phone)
             tkinter.messagebox.showinfo('Оповещение', 'Успешно')
             self.__app.destroy()
