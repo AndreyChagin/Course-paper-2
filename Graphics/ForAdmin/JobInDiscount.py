@@ -12,14 +12,15 @@ class DiscountFull:
 
     def __init__(self):
         self.__app = CTk()
-        self.__app.geometry("900x400")
+        self.__app.geometry(
+            f'{int(self.__app.winfo_screenwidth() * 0.53)}x{int(self.__app.winfo_screenheight() * 0.5)}')
         self.__app.resizable(0, 0)
         self.__app.title("Услуги")
         self.__frame = customtkinter.CTkFrame(
             master=self.__app,
             border_width=1,
             border_color='gray',
-            width=800,
+            width=int(self.__app.winfo_screenwidth() * 0.6)-200,
             height=100
         )
         self.__label_title = customtkinter.CTkLabel(
@@ -110,11 +111,11 @@ class DiscountFull:
         NewDiscount().loop()
 
     def loop(self):
-        self.__frame.place(x=50, y=10)
+        self.__frame.grid(row=1, column=1, columnspan=5, padx=50, pady=10)
         self.__button_update.place(x=10, y=40)
         self.__button_new_discount.place(x=160, y=40)
         self.__button_delete.place(x=310, y=40)
         self.__button_change.place(x=460, y=40)
         self.__entry_new_discount.place(x=610, y=40)
-        self.__table.place(x=50, y=125)
+        self.__table.grid(row=5, column=1, columnspan=4, padx=50, pady=25)
         self.__app.mainloop()

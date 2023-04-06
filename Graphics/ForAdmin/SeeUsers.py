@@ -9,7 +9,7 @@ class SeeUsers:
         customtkinter.set_appearance_mode('dark')
         customtkinter.set_default_color_theme('green')
         self.__app = CTk()
-        self.__app.geometry('500x350')
+        self.__app.geometry(f'{int(self.__app.winfo_screenwidth()*0.32)}x{int(self.__app.winfo_screenheight()*0.385)}')
         self.__app.resizable(0, 0)
         self.__app.title('Клиенты')
         self.__lable_title = customtkinter.CTkLabel(
@@ -37,8 +37,8 @@ class SeeUsers:
         self.__app.destroy()
 
     def loop(self):
-        self.__lable_title.place(x=50, y=15)
-        self.__table.place(x=50, y=50)
-        self.__button.place(x=310, y=280)
+        self.__lable_title.grid(row=1, column=1, sticky='W', ipadx=50)
+        self.__table.grid(row=2, column=1, columnspan=2, padx=50, pady=10)
+        self.__button.grid(row=3, column=1, sticky='W', padx=50)
         self.__app.mainloop()
 

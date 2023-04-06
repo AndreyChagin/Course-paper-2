@@ -62,7 +62,7 @@ class SeeApplicationUsers:
         if self.__table.item(self.__table.selection())['values'] != '':
             Application().delete_application(
                 id_app=int(self.__table.item(self.__table.selection())['values'][0]))
-            messagebox.showinfo('Оповещение', 'Заявка выполнена!!!')
+            messagebox.showinfo('Оповещение', 'Заявка выполнена, обновите таблицу!')
         else:
             messagebox.showerror('Ошибка', 'Вы ничего не выбрали!!!')
 

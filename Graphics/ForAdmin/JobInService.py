@@ -11,7 +11,7 @@ class ServiceFull:
 
     def __init__(self):
         self.__app = CTk()
-        self.__app.geometry("700x350")
+        self.__app.geometry(f'{int(self.__app.winfo_screenwidth()*0.43)}x{int(self.__app.winfo_screenheight()*0.4)}')
         self.__app.resizable(0, 0)
         self.__app.title("Услуги")
         self.__frame = customtkinter.CTkFrame(
@@ -74,9 +74,9 @@ class ServiceFull:
         NewService().loop()
 
     def loop(self):
-        self.__frame.place(x=50, y=10)
+        self.__frame.grid(row=1, column=1, columnspan=3, padx=50, pady=10)
         self.__button_update.place(x=10, y=40)
         self.__button_new_service.place(x=230, y=40)
         self.__button_change.place(x=445, y=40)
-        self.__table.place(x=50, y=125)
+        self.__table.grid(row=2, column=1, columnspan=3, padx=50, pady=10)
         self.__app.mainloop()

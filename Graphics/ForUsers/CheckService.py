@@ -12,7 +12,8 @@ class CheckService:
         customtkinter.set_appearance_mode('dark')
         customtkinter.set_default_color_theme('green')
         self.__app = CTk()
-        self.__app.geometry('1100x350')
+        # self.__app.geometry('1100x350')
+        self.__app.geometry(f'{int(self.__app.winfo_screenwidth()*0.7)}x{int(self.__app.winfo_screenheight()*0.4)}')
         self.__app.resizable(0, 0)
         self.__app.title('Услуги')
         self.__lable_title = customtkinter.CTkLabel(
@@ -58,7 +59,7 @@ class CheckService:
     def __new_application(self):
         if self.__table.item(self.__table.selection())['values'] != '':
             Application().new_app(id_service=self.__table.item(self.__table.selection())['values'][0])
-            messagebox.showinfo('Оповещение', 'Заявка успешно добавлена!!!')
+            messagebox.showinfo('Оповещение', 'Заявка успешно добавлена, обновите таблицу!')
         else:
             messagebox.showerror('Ошибка', 'Вы ничего не выбрали!!!')
 
@@ -66,9 +67,9 @@ class CheckService:
         self.__app.destroy()
 
     def check(self):
-        self.__table.place(x=50, y=50)
-        self.__combobox.place(x=910, y=15)
-        self.__button.place(x=910, y=280)
-        self.__button_new.place(x=710, y=280)
-        self.__lable_title.place(x=50, y=15)
+        self.__table.grid(row=2, column=1, pady=10, columnspan=5, padx=50)
+        self.__combobox.grid(row=1, column=5, sticky='E', padx=50)
+        self.__button.grid(row=3, column=5, sticky='E', padx=50)
+        self.__button_new.grid(row=3, column=5, sticky='w')
+        self.__lable_title.grid(row=1, column=1, sticky='W', ipadx=50)
         self.__app.mainloop()
