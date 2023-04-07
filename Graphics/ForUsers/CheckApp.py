@@ -12,8 +12,7 @@ class CheckMyApp:
         customtkinter.set_appearance_mode('dark')
         customtkinter.set_default_color_theme('green')
         self.__app = CTk()
-        # self.__app.geometry('900x350')
-        self.__app.geometry(f'{int(self.__app.winfo_screenwidth() * 0.57)}x{int(self.__app.winfo_screenheight() * 0.4)}')
+        self.__app.geometry('800x350')
         self.__app.resizable(0, 0)
         self.__app.title('Заявки')
         self.__lable_title = customtkinter.CTkLabel(
@@ -79,11 +78,10 @@ class CheckMyApp:
         self.__app.destroy()
 
     def check(self):
-        self.__table.grid(row=2,  column=1, pady=10, columnspan=4, padx=50)
-        self.__button.grid(row=3, column=4, sticky='E', padx=50)
-        self.__button_delete.grid(row=3, column=3, sticky='E')
-        self.__button_update.grid(row=3, column=2)
-        self.__label.grid(row=3, column=1, sticky='w', ipadx=50)
-        self.__lable_title.grid(row=1, column=1, sticky='W', ipadx=50)
+        self.__table.grid(row=2,  column=1, pady=10, columnspan=3)
+        self.__button.grid(row=3, column=3)
+        self.__button_delete.grid(row=3, column=2)
+        self.__button_update.grid(row=3, column=1)
+        self.__label.grid(row=4, column=1, columnspan=2, sticky='w')
+        self.__lable_title.grid(row=1, column=1, sticky='w')
         self.__app.mainloop()
-
