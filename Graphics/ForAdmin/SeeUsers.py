@@ -29,7 +29,7 @@ class SeeUsers:
         self.__table.delete(*self.__table.get_children())
         self.__table.heading(0, text='Login')
         self.__table.heading(1, text='Телефон')
-        __output = [item[1] for item in Users().data if item[3] is not None]
+        __output = [(item[1], item[3]) for item in Users().data if item[3] is not None]
         for row in range(len(__output)):
             self.__table.insert(parent='', index=row, values=__output[row])
 
