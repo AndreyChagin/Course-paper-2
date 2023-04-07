@@ -13,14 +13,14 @@ class DiscountFull:
     def __init__(self):
         self.__app = CTk()
         self.__app.geometry(
-            f'{int(self.__app.winfo_screenwidth() * 0.53)}x{int(self.__app.winfo_screenheight() * 0.5)}')
+            f'{int(self.__app.winfo_screenwidth() * 0.54)}x{int(self.__app.winfo_screenheight() * 0.45)}')
         self.__app.resizable(0, 0)
         self.__app.title("Услуги")
         self.__frame = customtkinter.CTkFrame(
             master=self.__app,
             border_width=1,
             border_color='gray',
-            width=int(self.__app.winfo_screenwidth() * 0.6)-200,
+            width=int(self.__app.winfo_screenwidth() * 0.5)-40,
             height=100
         )
         self.__label_title = customtkinter.CTkLabel(

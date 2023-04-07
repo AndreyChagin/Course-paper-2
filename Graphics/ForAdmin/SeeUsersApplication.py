@@ -11,7 +11,7 @@ class SeeApplicationUsers:
         customtkinter.set_appearance_mode('dark')
         customtkinter.set_default_color_theme('green')
         self.__app = CTk()
-        self.__app.geometry('900x400')
+        self.__app.geometry('800x350')
         self.__app.resizable(0, 0)
         self.__app.title('Услуги')
         self.__lable_title = customtkinter.CTkLabel(
@@ -76,10 +76,10 @@ class SeeApplicationUsers:
         self.__app.destroy()
 
     def loop(self):
-        self.__lable_title.place(x=50, y=15)
-        self.__combobox.place(x=250, y=15)
-        self.__table.place(x=50, y=70)
-        self.__button_delete_app.place(x=310, y=320)
-        self.__update_view.place(x=510, y=320)
-        self.__button.place(x=710, y=320)
+        self.__lable_title.grid(row=1, column=1, sticky='w')
+        self.__combobox.grid(row=1, column=2, padx=10, sticky='w')
+        self.__table.grid(row=2, column=1, columnspan=4, pady=10)
+        self.__button_delete_app.grid(row=3, column=1)
+        self.__update_view.grid(row=3, column=2)
+        self.__button.grid(row=3, column=3)
         self.__app.mainloop()
